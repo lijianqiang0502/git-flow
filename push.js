@@ -5,7 +5,7 @@ const git = simpleGit();
 const gitP = simpleGitP();
 
 
-git.diffSummary().then(
+gitP.diffSummary().then(
     (diffSummary) => {
       const ignoreFilterList = ['package.lock.json', 'dist'];
       const changes = {
