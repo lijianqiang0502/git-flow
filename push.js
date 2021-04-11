@@ -1,7 +1,5 @@
 var readlineSync = require('readline-sync');
-const simpleGit = require('simple-git');
 const simpleGitP = require('simple-git/promise');
-const git = simpleGit();
 const gitP = simpleGitP();
 
 
