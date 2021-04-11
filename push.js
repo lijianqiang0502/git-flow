@@ -1,7 +1,8 @@
 var readlineSync = require('readline-sync');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
+const simpleGitP = require('simple-git/promise');
 const git = simpleGit();
-
+const gitP = simpleGitP();
 
 
 git.diffSummary(['--cached']).then(
@@ -14,7 +15,6 @@ git.diffSummary(['--cached']).then(
         files: [],
       };
       diffSummary.files.forEach((item) => {
-          console.log(123, diffSummary)
         const isIgnore = ignoreFilterList.includes(item.file);
         if (!isIgnore) {
           changes.insertions += item.insertions;
@@ -39,15 +39,15 @@ git.diffSummary(['--cached']).then(
 
   
 
-// var commitMsg = readlineSync.question('Please enter the commit message： ');
+var commitMsg = readlineSync.question('Please enter the commit message： ');
 
 async function quickGit() {
     // await git.status();
     // await simpleGit.checkout('master');
-    await git.add('./*');
-    await git.commit('three commit!');
-    await git.pull('origin', 'jiuzhe');  
-    await git.push('origin', 'jiuzhe');
+    await gitP.add('./*');
+    await gitP.commit(commitMsg);
+    await gitP.pull('origin', 'jiuzhe');  
+    await gitP.push('origin', 'jiuzhe');
     // await simpleGit.mergeFromTo('from', 'to');
 }
 quickGit();
