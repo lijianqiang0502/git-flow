@@ -42,11 +42,21 @@ git.diffSummary().then(
 var commitMsg = readlineSync.question('Please enter the commit message： ');
 
 async function quickGit() {
-    let branch = await gitP.branch();
-    console.log(branch)
+    let branchs = await gitP.branch();
+    branchs = branchs.branches;
+    let currentBranch;
+
+    for(let key in branchs){
+        if(branchs[key].current === true){
+            currentBranch = key;
+        }
+    }
+
+    console.log(currentBranch);
+
     await gitP.add('./*');
     await gitP.commit(commitMsg);
-    await gitP.pull('origin', 'jiuzhe');  
-    await gitP.push('origin', 'jiuzhe');
+    await gitP.pull('origin', currentBranch);  
+    await gitP.push('origin', currentBranch);
 }
 quickGit();
