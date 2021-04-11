@@ -11,7 +11,6 @@ async function quickGit() {
     await gitP.raw('checkout', '-b', branchName);
     await gitP.add('./*');
     await gitP.commit("init");
-    await gitP.pull('origin', branchName);  
     await gitP.push('origin', branchName);
 }
 quickGit();
