@@ -3,14 +3,15 @@ const simpleGit = require('simple-git/promise');
 const git = simpleGit();
 
 
-var commitMsg = readlineSync.question('Please enter the commit message： ');
+// var commitMsg = readlineSync.question('Please enter the commit message： ');
 
-try{
-    git.raw('add', '.');
-    git.raw('commit', '-m', commitMsg);
-    git.raw('pull', 'origin', 'jiuzhe');
-    git.raw('push', 'origin', 'jiuzhe');
+async function quickGit() {
+    // await git.status();
+    // await simpleGit.checkout('master');
+    await git.add('./*');
+    await git.commit('first commit!');
+    await git.pull('origin', 'jiuzhe');  
+    await git.push('origin', 'jiuzhe');
+    // await simpleGit.mergeFromTo('from', 'to');
 }
-catch(error){
-    console.error(error);
-}
+quickGit();
