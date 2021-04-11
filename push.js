@@ -31,7 +31,7 @@ git.diffSummary(['--cached']).then(
         共计改动${codeChange}行；
         `,
     );
-    console.error('\x1B[31m%s\x1B[0m', error);
+    console.log('\x1B[31m%s\x1B[0m', error);
 
     },
   );
@@ -45,7 +45,7 @@ async function quickGit() {
     // await git.status();
     // await simpleGit.checkout('master');
     await git.add('./*');
-    await git.commit('first commit!');
+    await git.commit('second commit!');
     await git.pull('origin', 'jiuzhe');  
     await git.push('origin', 'jiuzhe');
     // await simpleGit.mergeFromTo('from', 'to');
