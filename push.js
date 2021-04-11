@@ -23,14 +23,13 @@ git.diffSummary(['--cached']).then(
         }
       });
       const codeChange = changes.insertions + changes.deletions;
-    const error = new Error(
+    const error = 
         `
         此次设计到${changes.fileCounts}个文件修改；
         所有改动的文件：${changes.files.join('，')}；
         新增${changes.insertions}行，删除${changes.deletions}行;
         共计改动${codeChange}行；
-        `,
-    );
+        `;
     console.log('\x1B[31m%s\x1B[0m', error);
 
     },
@@ -45,7 +44,7 @@ async function quickGit() {
     // await git.status();
     // await simpleGit.checkout('master');
     await git.add('./*');
-    await git.commit('second commit!');
+    await git.commit('three commit!');
     await git.pull('origin', 'jiuzhe');  
     await git.push('origin', 'jiuzhe');
     // await simpleGit.mergeFromTo('from', 'to');
