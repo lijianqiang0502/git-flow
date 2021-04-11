@@ -14,6 +14,7 @@ git.diffSummary(['--cached']).then(
         files: [],
       };
       diffSummary.files.forEach((item) => {
+          console.log(123, diffSummary)
         const isIgnore = ignoreFilterList.includes(item.file);
         if (!isIgnore) {
           changes.insertions += item.insertions;
