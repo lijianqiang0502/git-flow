@@ -52,6 +52,8 @@ async function quickGit() {
 
     await gitP.add('./*');
     await gitP.commit(commitMsg);
+    var pullBranch = readlineSync.question('Please enter the pull branch： ');
+    currentBranch = pullBranch === "" ? currentBranch : pullBranch;
     await gitP.pull('origin', currentBranch, {'--rebase': 'true'});  
     await gitP.push('origin', currentBranch,);
 }
