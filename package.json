@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/lijianqiang0502/git-flow/issues"
   },
-  "homepage": "https://github.com/lijianqiang0502/git-flow#readme"
+  "homepage": "https://github.com/lijianqiang0502/git-flow#readme",
+  "dependencies": {
+    "simple-git": "^2.37.0"
+  }
 }
