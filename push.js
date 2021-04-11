@@ -52,8 +52,6 @@ async function quickGit() {
         }
     }
 
-    console.log(currentBranch);
-
     await gitP.add('./*');
     await gitP.commit(commitMsg);
     await gitP.pull('origin', currentBranch);  
