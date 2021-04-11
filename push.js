@@ -42,12 +42,11 @@ git.diffSummary().then(
 var commitMsg = readlineSync.question('Please enter the commit message： ');
 
 async function quickGit() {
-    // await git.status();
-    // await simpleGit.checkout('master');
+    let branch = await gitP.branch();
+    console.log(branch)
     await gitP.add('./*');
     await gitP.commit(commitMsg);
     await gitP.pull('origin', 'jiuzhe');  
     await gitP.push('origin', 'jiuzhe');
-    // await simpleGit.mergeFromTo('from', 'to');
 }
 quickGit();
