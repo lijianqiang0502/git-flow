@@ -5,9 +5,7 @@ const git = simpleGit();
 
 var commitMsg = readlineSync.question('Please enter the commit message： ');
 
-console.log(git);
-
 git.raw('add', '.');
 git.raw('commit', '-m', commitMsg);
-git.raw('pull', 'origin', 'new');
-git.raw('push', 'origin', 'new');
+git.raw('pull', 'origin', 'jiuzhe');
+git.raw('push', 'origin', 'jiuzhe');
