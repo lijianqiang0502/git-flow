@@ -3,5 +3,5 @@ const simpleGit = require('simple-git');
 const git = simpleGit();
 
 
-git.add();
+git.add(['feature.js']);
 git.commit("message");
