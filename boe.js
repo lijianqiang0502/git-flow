@@ -41,17 +41,26 @@ async function quickBoe() {
     let branchs = await gitP.branch();
     branchs = branchs.branches;
     let currentBranch;
+    let mask = 0;
 
     for(let key in branchs){
+        if (key === 'boe') mask = 1;
         if(branchs[key].current === true){
             currentBranch = key;
         }
     }
+    if (mask === 0 ){
+        await gitP.raw('checkout', '-b', `boe`);
 
-    await gitP.raw('checkout', '-b', `boe-${currentBranch}`);
+    }else{
+        await gitP.raw('checkout', `boe`);
+        console.log(currentBranch);
+        await gitP.merge(currentBranch);
+    }
     await gitP.add('./*');
     await gitP.commit("boe-test");
-    await gitP.push('origin', `boe-${currentBranch}`);
+    await gitP.push('origin', `boe`);
+
 
 }
 quickBoe();
