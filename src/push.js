@@ -58,8 +58,6 @@ function push() {
     quickGit();
 }
 
-
-
 module.exports = {
     push,
 }
