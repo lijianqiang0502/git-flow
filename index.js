@@ -3,6 +3,7 @@
 const {createHotfixBranch} = require('./src/hotfix');
 const {createFeatureBranch} = require('./src/feature');
 const {push} = require('./src/push');
+const {pull} = require('./src/pull');
 
 function showHelp() {
     console.log('  usage:\n');
@@ -25,8 +26,11 @@ function run (argv) {
     else if (argv[0] === 'feature') {
         createFeatureBranch();
     }
-    else if (argv[0] === 'push') {
+    else if (argv[0] === 'ph' || argv[0] === 'push') {
         push();
+    }
+    else if (argv[0] === 'pl' || argv[0] === 'pull') {
+        pull();
     }
     else if (argv[0] === '-h' || argv[0] === '--help'){
         showHelp();
