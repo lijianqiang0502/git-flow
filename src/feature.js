@@ -12,4 +12,7 @@ async function createFeatureBranch() {
     await gitP.commit("init");
     await gitP.push('origin', `feature-${branchName}`);
 }
-createFeatureBranch();
+
+module.exports = {
+    createFeatureBranch,
+}

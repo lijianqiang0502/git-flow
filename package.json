@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "feature.js",
+  "bin":{
+    "gp": "./index.js"
+  },
   "scripts": {
     "feature": "node ./feature.js",
     "hotfix": "node ./hotfix.js",

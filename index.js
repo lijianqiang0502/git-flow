@@ -1,21 +1,41 @@
-const feature = require('./feature');
-const program = require('commander');
+#!/usr/bin/env node
 
-program
-    .command('feature [name]')
-    .alias('f')
-    .option('-s, --submodule <submodule>', 'open submodule', 'true')
-    .description('create feature-[name] branch')
-    .action(function (name, options) {
-        if (!checkName(name)) {
-            return false;
-        }
+const {createHotfixBranch} = require('./src/hotfix');
+const {createFeatureBranch} = require('./src/feature');
+const {push} = require('./src/push');
 
-        if (options.submodule === 'true' && submodules.length > 0) {
-            commonSubmoduleResolve();
-        } else {
-            commonProcess(feature, name, {
-                restoreStack: false,
-            });
-        }
-    });
+function showHelp() {
+    console.log('  usage:\n');
+    console.log('  -v --version [show version]');
+    console.log('  -h --help [show help]');
+    console.log('  hotfix [create hotfix-[name] branch and checkout hotfix-[name]]');
+    console.log('  feature [create feature-[name] branch and checkout feature-[name]]');
+}
+
+
+function run (argv) {
+    console.log(argv);
+    if (argv[0] === '-v' || argv[0] === '--version') {
+
+        console.log('  version is 0.0.1');
+
+    }
+    else if (argv[0] === 'hotfix') {
+        createHotfixBranch();
+    }
+    else if (argv[0] === 'feature') {
+        createFeatureBranch();
+    }
+    else if (argv[0] === 'push') {
+        push();
+    }
+    else if (argv[0] === '-h' || argv[0] === '--help'){
+        showHelp();
+    }
+    else{
+        const error = `The command cannot be found, please refer to the following document`;
+        console.log('\x1B[31m%s\x1B[0m', error);
+        showHelp();
+    }
+}
+run(process.argv.slice(2));
