@@ -5,7 +5,8 @@
   "main": "feature.js",
   "scripts": {
     "feature": "node ./feature.js",
-    "push": "node ./push.js"
+    "push": "node ./push.js",
+    "boe": "node ./boe.js"
   },
   "repository": {
     "type": "git",
