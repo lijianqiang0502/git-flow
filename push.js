@@ -57,4 +57,5 @@ async function quickGit() {
     await gitP.pull('origin', currentBranch, {'--rebase': 'true'});  
     await gitP.push('origin', currentBranch,);
 }
+
 quickGit();
