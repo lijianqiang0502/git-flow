@@ -21,7 +21,6 @@ async function pull() {
             for (let key in res.insertions){
                 console.log('\x1B[31m%s\x1B[0m', key + "+" + res.insertions[key]);
             }
-            // console.log('\x1B[32m%s\x1B[0m', "pull files: \n\n"+res.files.join('\n'));
         }
     );
 }
