@@ -51,9 +51,12 @@ function push() {
 
         await gitP.add('./*');
         await gitP.commit(commitMsg);
-        // var pullBranch = readlineSync.question('Please enter the pull branch： ');
-        // currentBranch = pullBranch === "" ? currentBranch : pullBranch;
-        await gitP.pull('origin', currentBranch,);
+        await gitP.pull('origin', currentBranch,).catch(err => {
+            console.log(err);
+        });
+        // await gitP.raw('git pull origin ' + currentBranch, (suc, err) => {
+        //     console.log(suc, err);
+        // });
         await gitP.push('origin', currentBranch,);
     }
     quickGit();
