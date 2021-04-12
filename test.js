@@ -1,11 +1,6 @@
 console.log('hhhhh', 12342142);
 console.log('hhhhh', 12342142);
 console.log('hhhhh', 12342142);
-console.log('321', 12342142);
-console.log('421', 12342142);
-console.log('324', 12342142);
-console.log('432', 12342142);
-console.log('532', 12342142);
 console.log('hhhhh', 12342142);
 console.log('hhhhh', 12342142);
 console.log('hhhhh', 12342142);
