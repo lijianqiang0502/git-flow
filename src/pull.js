@@ -15,7 +15,7 @@ async function pull() {
     }
     await gitP.pull('origin', currentBranch).then(
         res => {
-            console.log('\x1B[32m%s\x1B[0m', res);
+            console.log('\x1B[32m%s\x1B[0m', "changes files "+res.files.join(','));
         }
     );
 }
