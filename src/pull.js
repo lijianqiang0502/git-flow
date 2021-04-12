@@ -15,9 +15,13 @@ async function pull() {
     }
     await gitP.pull('origin', currentBranch).then(
         res => {
-            console.log('\x1B[32m%s\x1B[0m', "1: \n\n"+JSON.stringify(res.deletions));
-            console.log('\x1B[32m%s\x1B[0m', "2: \n\n"+JSON.stringify(res.insertions));
-            console.log('\x1B[32m%s\x1B[0m', "pull files: \n\n"+res.files.join('\n'));
+            for (let key in res.deletions){
+                console.log('\x1B[32m%s\x1B[0m', key + "-" + res.deletions[key]);
+            }
+            for (let key in res.insertions){
+                console.log('\x1B[31m%s\x1B[0m', key + "+" + res.insertions[key]);
+            }
+            // console.log('\x1B[32m%s\x1B[0m', "pull files: \n\n"+res.files.join('\n'));
         }
     );
 }
