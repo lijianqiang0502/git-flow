@@ -14,7 +14,6 @@ function showHelp() {
 
 
 function run (argv) {
-    console.log(argv);
     if (argv[0] === '-v' || argv[0] === '--version') {
 
         console.log('  version is 0.0.1');
