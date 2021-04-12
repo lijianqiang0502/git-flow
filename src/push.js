@@ -30,7 +30,7 @@ function push() {
         新增${changes.insertions}行，删除${changes.deletions}行;
         共计改动${codeChange}行；
         `;
-            console.log('\x1B[31m%s\x1B[0m', error);
+            console.log('\x1B[32m%s\x1B[0m', error);
 
         },
     );
@@ -51,11 +51,9 @@ function push() {
 
         await gitP.add('./*');
         await gitP.commit(commitMsg);
-        await gitP.pull('origin', currentBranch).then(
-            await gitP.push('origin', currentBranch)
-        ).catch(err => {
-            console.log('\x1B[32m%s\x1B[0m', err);
-        });
+        await gitP.pull('origin', currentBranch);
+        await gitP.push('origin', currentBranch);
+
     }
     quickGit();
 }
