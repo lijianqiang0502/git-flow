@@ -51,11 +51,9 @@ function push() {
 
         await gitP.add('./*');
         await gitP.commit(commitMsg);
-        await gitP.pull('origin', currentBranch).then(
-            await gitP.push('origin', currentBranch)
-        ).catch(err => {
-            console.log('\x1B[31m%s\x1B[0m', err);
-        });
+        await gitP.pull('origin', currentBranch);
+        await gitP.push('origin', currentBranch);
+
     }
     quickGit();
 }
