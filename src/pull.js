@@ -15,8 +15,8 @@ async function pull() {
     }
     await gitP.pull('origin', currentBranch).then(
         res => {
-            console.log('\x1B[32m%s\x1B[0m', "1: \n\n"+res.deletions.toString());
-            console.log('\x1B[32m%s\x1B[0m', "2: \n\n"+res.insertions.toString());
+            console.log('\x1B[32m%s\x1B[0m', "1: \n\n"+JSON.stringify(res.deletions));
+            console.log('\x1B[32m%s\x1B[0m', "2: \n\n"+JSON.stringify(res.insertions));
             console.log('\x1B[32m%s\x1B[0m', "pull files: \n\n"+res.files.join('\n'));
         }
     );
