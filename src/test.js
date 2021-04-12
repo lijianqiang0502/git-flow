@@ -1,11 +1,7 @@
 const simpleGit = require('simple-git/promise');
 const gitP = simpleGit();
 
-
-
-
 async function test() {
-
     let branchs = await gitP.branch();
     branchs = branchs.branches;
     let currentBranch;
