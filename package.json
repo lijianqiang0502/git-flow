@@ -4,7 +4,7 @@
   "description": "",
   "main": "feature.js",
   "bin":{
-    "gitP": "./index.js"
+    "gp": "./index.js"
   },
   "scripts": {
     "feature": "node ./feature.js",
