@@ -12,6 +12,9 @@ function showHelp() {
     console.log('  -h --help [show help]');
     console.log('  hotfix [create hotfix-[name] branch and checkout hotfix-[name]]');
     console.log('  feature [create feature-[name] branch and checkout feature-[name]]');
+    console.log('  pull [pull your origin branch code]');
+    console.log('  push [add commit pull push]');
+    console.log('  test [create test-[name] branch and checkout test-[name] and rebase master]');
 }
 
 
