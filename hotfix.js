@@ -12,4 +12,7 @@ async function createHotfixBranch() {
     await gitP.commit("init");
     await gitP.push('origin', `hotfix-${branchName}`);
 }
-createHotfixBranch();
+
+module.exports = {
+    createHotfixBranch,
+}

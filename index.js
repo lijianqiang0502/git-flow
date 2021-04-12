@@ -1,24 +1,17 @@
-const feature = require('./feature');
-const program = require('commander');
+#!/usr/bin/env node
 
-program
-    .command('feature [name]')
-    .alias('f')
-    .option('-s, --submodule <submodule>', 'open submodule', 'true')
-    .description('create feature-[name] branch')
-    .action(function (name, options) {
-        if (!checkName(name)) {
-            return false;
-        }
+const {createHotfixBranch} = require('./hotfix');
 
-        if (options.submodule === 'true' && submodules.length > 0) {
-            commonSubmoduleResolve();
-        } else {
-            commonProcess(feature, name, {
-                restoreStack: false,
-            });
-        }
-    });
+function run (argv) {
+    if (argv[0] === '-v' || argv[0] === '--version') {
 
+        console.log('  version is 0.0.1');
 
+    } else if (argv[0] === 'hotfix' || argv[0] === 'hotfix') {
+        createHotfixBranch();
+        console.log('  usage:\n');
+        console.log('  -v --version [show version]');
 
+    }
+}
+run(process.argv.slice(2));
