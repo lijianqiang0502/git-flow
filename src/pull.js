@@ -13,7 +13,11 @@ async function pull() {
             currentBranch = key;
         }
     }
-    await gitP.pull('origin', currentBranch);
+    await gitP.pull('origin', currentBranch).then(
+        res => {
+            console.log('\x1B[32m%s\x1B[0m', res);
+        }
+    );
 }
 
 module.exports = {
