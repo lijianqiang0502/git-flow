@@ -60,13 +60,6 @@ async function quickBoe() {
         process.exit(1);
     }
 
-
-    // //提交自己的分支
-    // await gitP.raw('checkout', currentBranch);
-    // await gitP.add('./*');
-    // await gitP.commit("");
-    // await gitP.push('origin', `boe-${currentBranch}`);
-
     //拉取rebase分支的最新代码
     await gitP.raw('checkout', rebaseBranch);
     await gitP.pull('origin', rebaseBranch);
