@@ -16,10 +16,10 @@ async function pull() {
     await gitP.pull('origin', currentBranch).then(
         res => {
             for (let key in res.deletions){
-                console.log('\x1B[31m%s\x1B[0m', key + "| " + res.deletions[key] + "++++++");
+                console.log('\x1B[31m%s\x1B[0m', key + "| -" + res.deletions[key] + " lines");
             }
             for (let key in res.insertions){
-                console.log('\x1B[32m%s\x1B[0m', key + "| " + res.insertions[key] + "-----");
+                console.log('\x1B[32m%s\x1B[0m', key + "| +" + res.insertions[key] + " lines");
             }
         }
     );
