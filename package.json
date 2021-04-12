@@ -5,6 +5,7 @@
   "main": "feature.js",
   "scripts": {
     "feature": "node ./feature.js",
+    "hotfix": "node ./hotfix.js",
     "push": "node ./push.js",
     "rebase": "node ./rebase.js",
     "boe": "node ./boe.js"

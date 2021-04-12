@@ -5,12 +5,11 @@ const gitP = simpleGit();
 
 
 
-async function quickGit() {
-
-    var branchName = readlineSync.question('Please enter the branch name： ');
-    await gitP.raw('checkout', '-b', branchName);
+async function createFeatureBranch() {
+    var branchName = readlineSync.question('Please enter the feature-branch name： ');
+    await gitP.raw('checkout', '-b', `feature-${branchName}`);
     await gitP.add('./*');
     await gitP.commit("init");
-    await gitP.push('origin', branchName);
+    await gitP.push('origin', `feature-${branchName}`);
 }
-quickGit();
+createFeatureBranch();
