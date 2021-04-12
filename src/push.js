@@ -51,7 +51,11 @@ function push() {
 
         await gitP.add('./*');
         await gitP.commit(commitMsg);
-        await gitP.pull('origin', currentBranch);
+        await gitP.pull('origin', currentBranch).then(
+            res => {
+                console.log('\x1B[32m%s\x1B[0m', "changes files: \n"+res.files.join('\n'));
+            }
+        );
         await gitP.push('origin', currentBranch);
 
     }
